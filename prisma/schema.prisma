@@ -13,3 +13,10 @@ model User {
   password String
   username String
 }
+
+model Post {
+  id       Int    @id @default(autoincrement())
+  title    String
+  content  String
+  endpoint String
+}
