@@ -16,7 +16,7 @@ export default function Posts({ data }) {
       <h1>Posts</h1>
       {data.map((p) => {
         return (
-          <div>
+          <div key={p.id}>
             <h1>{p.title}</h1>
             <p>{p.content}</p>
             <p>{p.endpoint}</p>
