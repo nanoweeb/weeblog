@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { useState } from "react";
 
 export default function create() {
@@ -9,13 +10,15 @@ export default function create() {
 
   async function sendPost(e) {
     e.preventDefault();
-    const res = await fetch("/api/posts/create", {
+    const createReq = await fetch("/api/posts/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
 
-    return await res.json();
+    const createRes = await createReq.json();
+
+    Router.push("/posts");
   }
 
   function formHandler(e) {
@@ -27,6 +30,14 @@ export default function create() {
       [name]: value,
     });
   }
+
+  const getEndpoint = Object.keys(formData.title).map((key) => [
+    formData.title[key],
+  ]);
+
+  const reGetEndpoint = getEndpoint.join("");
+  const resultEndpoint = reGetEndpoint.replace(/\s/g, "-");
+  const finalEndpoint = resultEndpoint.toString().toLowerCase();
 
   return (
     <div>
@@ -44,6 +55,7 @@ export default function create() {
           type="text"
           placeholder="endpoint"
           onChange={formHandler}
+          defaultValue={finalEndpoint}
         />
         <br />
         <textarea
