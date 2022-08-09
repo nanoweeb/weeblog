@@ -19,7 +19,7 @@ export default function Posts({ data }) {
           <div key={p.id}>
             <h1>{p.title}</h1>
             <p>{p.content}</p>
-            <a href={"./posts/" + p.endpoint}>read more</a>
+            <a href={"/posts/detail/" + p.endpoint}>read more</a>
           </div>
         );
       })}
