@@ -27,6 +27,7 @@ export default function create() {
 
     //limit endpoint ben ra iso ke luwihen
     const getEndpoint = e.target.value.replace(/\s/g, "-");
+
     function limit(string = "", limit = 40) {
       return string.substring(0, limit);
     }
@@ -37,7 +38,7 @@ export default function create() {
     setFormData({
       ...formData,
       [name]: value,
-      endpoint,
+      endpoint: endpoint,
     });
   }
 

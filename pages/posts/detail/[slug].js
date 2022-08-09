@@ -20,7 +20,7 @@ export default function detail({ detail }) {
       <h1>detail</h1>
       {detail.map((d) => {
         return (
-          <div>
+          <div key={d.id}>
             <h1>{d.title}</h1>
             <p>{d.content}</p>
           </div>
