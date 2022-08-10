@@ -16,16 +16,21 @@ export async function getServerSideProps(req, res) {
 
 export default function detail({ detail }) {
   return (
-    <div>
-      <h1>detail</h1>
-      {detail.map((d) => {
-        return (
-          <div key={d.id}>
-            <h1>{d.title}</h1>
-            <p>{d.content}</p>
-          </div>
-        );
-      })}
+    <div className="w-full">
+      <main className="max-w-[1000px] px-5 mx-auto mt-6 text-white">
+        <article>
+          {detail.map((d) => {
+            return (
+              <div key={d.id}>
+                <h1 className="text-xl font-semibold text-center mb-5">
+                  {d.title}
+                </h1>
+                <p className="text-gray-400">{d.content}</p>
+              </div>
+            );
+          })}
+        </article>
+      </main>
     </div>
   );
 }

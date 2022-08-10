@@ -44,12 +44,12 @@ export default function create() {
 
   return (
     <div className="w-full">
-      <div className="max-w-[1000px] px-5 mx-auto mt-6 ">
+      <main className="max-w-[1000px] px-5 mx-auto mt-6 ">
         <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-2xl font-semibold mb-10">
           Create a new posts
         </h1>
 
-        <form onSubmit={sendPost} className="flex flex-col p-2">
+        <form onSubmit={sendPost} className="flex flex-col p-2 text-gray-200">
           <input
             name="title"
             type="text"
@@ -72,7 +72,7 @@ export default function create() {
             send
           </button>
         </form>
-      </div>
+      </main>
     </div>
   );
 }
