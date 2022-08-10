@@ -12,24 +12,24 @@ export async function getServerSideProps() {
   };
 }
 
-function limit(string = "", limit = 240) {
+function limit(string = "", limit = 100) {
   return string.substring(0, limit) + "...";
 }
 
 export default function Posts({ data }) {
   return (
     <div className="w-full">
-      <div className="max-w-[1000px] px-5 mx-auto">
+      <div className="max-w-[1000px] px-5 mx-auto mt-10">
         <main>
-          <h1 className="text-2xl text-gray-200 font-semibold mb-10 ">
-            Weeblog
+          <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-2xl text-gray-200 font-semibold mb-10">
+            Weeblog Posts
           </h1>
           <article>
             {data.map((p) => {
               return (
                 <div
                   key={p.id}
-                  className="shadow-md space-y-6 mb-6 p-5 border-l-4 border-[#066163]"
+                  className="shadow-md space-y-6 mb-6 p-4 border-l-4 border-[#066163]"
                 >
                   <h1 className="text-lg font-semibold text-gray-200 ">
                     {p.title}
