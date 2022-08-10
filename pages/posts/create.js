@@ -43,8 +43,8 @@ export default function create() {
   }
 
   return (
-    <div className="w-full">
-      <main className="max-w-[1000px] px-5 mx-auto mt-6 ">
+    <div className="w-full bg-[#0F172A]">
+      <main className="max-w-[1000px] px-5 mx-auto pt-6 ">
         <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-2xl font-semibold mb-10">
           Create a new posts
         </h1>

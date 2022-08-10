@@ -18,8 +18,8 @@ function limit(string = "", limit = 100) {
 
 export default function Posts({ data }) {
   return (
-    <div className="w-full">
-      <div className="max-w-[1000px] px-5 mx-auto mt-10">
+    <div className="w-full bg-[#0F172A]">
+      <div className="max-w-[1000px] px-5 mx-auto pt-10">
         <main>
           <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-xl font-semibold mb-10">
             Weeblog Posts
