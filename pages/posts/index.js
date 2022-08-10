@@ -21,7 +21,7 @@ export default function Posts({ data }) {
     <div className="w-full">
       <div className="max-w-[1000px] px-5 mx-auto mt-10">
         <main>
-          <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-2xl text-gray-200 font-semibold mb-10">
+          <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-xl font-semibold mb-10">
             Weeblog Posts
           </h1>
           <article>
