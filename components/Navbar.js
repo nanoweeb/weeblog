@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { MdOutlineClose } from "react-icons/md";
@@ -33,11 +34,17 @@ export default function Navbar() {
                 damping: 10,
               }}
             >
-              <ul className="space-y-5 absolute top-20 -left-5">
-                <li className="py-1 border-b-2 ">profile</li>
-                <li className="py-1 border-b-2">dashboard</li>
-                <li className="py-1 border-b-2">post</li>
-              </ul>
+              <div className="flex flex-col gap-2 space-y-5 absolute top-20 -left-5">
+                <Link href="/posts">
+                  <a className="border-b-2 py-1 border-gray-500">Dashboard</a>
+                </Link>
+                <Link href="/">
+                  <a className="border-b-2 py-1 border-gray-500">Home</a>
+                </Link>
+                <Link href="/">
+                  <a className="border-b-2 py-1 border-gray-500">Profile</a>
+                </Link>
+              </div>
             </motion.div>
           </div>
         )}
