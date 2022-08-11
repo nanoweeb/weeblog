@@ -34,7 +34,7 @@ export default function Navbar() {
                 damping: 10,
               }}
             >
-              <div className="flex flex-col gap-2 space-y-5 absolute top-20 -left-5">
+              <div className="flex flex-col gap-5 absolute top-20 -left-10">
                 <Link href="/posts">
                   <a className="border-b-2 py-1 border-gray-500">Dashboard</a>
                 </Link>
