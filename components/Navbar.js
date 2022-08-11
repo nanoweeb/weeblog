@@ -1,31 +1,53 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { MdOutlineClose } from "react-icons/md";
-import { BsFillMoonFill } from "react-icons/bs";
+import { MdNightlightRound } from "react-icons/md";
 import { MdWbSunny } from "react-icons/md";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  function handlerDark() {
+    setIsDark(!isDark);
+  }
 
   function handlerToggle() {
     setIsOpen(!isOpen);
   }
 
   return (
-    <div className="py-4 border-b-3 px-5 bg-[#0F172A]">
-      <nav>
-        <button onClick={handlerToggle} className="text-2xl">
+    <div className="py-4 w-full border-b-2 px-5 bg-[#0F172A] border-gray-500">
+      <nav className="flex items-start justify-between">
+        <button onClick={handlerToggle} className="text-2xl translate-y-2">
           {isOpen ? <MdOutlineClose /> : <HiMenuAlt4 />}
         </button>
         {isOpen && (
-          <div className="h-screen w-full text-xl text-gray-200 absolute top-10 left-0 px-5 py-10 bg-[#0F172A]">
-            <ul className="space-y-5">
-              <li className="border-b-[1px] py-1 border-gray-500">post</li>
-              <li className="border-b-[1px] py-1 border-gray-500">dashboard</li>
-              <li className="border-b-[1px] py-1 border-gray-500">profile</li>
-            </ul>
+          <div className="h-screen w-full text-xl text-gray-200 relative top-10 left-0 px-5 py-10 bg-[#0F172A]">
+            <motion.div
+              animate={{ y: -100 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+              }}
+            >
+              <ul className="space-y-5 absolute top-20 -left-5">
+                <li className="py-1 border-b-2 ">profile</li>
+                <li className="py-1 border-b-2">dashboard</li>
+                <li className="py-1 border-b-2">post</li>
+              </ul>
+            </motion.div>
           </div>
         )}
+
+        <button
+          onClick={handlerDark}
+          className="border-[3px] border-gray-500 p-2 rounded-xl"
+        >
+          {isDark ? <MdNightlightRound /> : <MdWbSunny />}
+        </button>
       </nav>
     </div>
   );
