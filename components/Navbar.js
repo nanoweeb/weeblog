@@ -54,7 +54,7 @@ export default function Navbar() {
 
         <button
           onClick={handlerDark}
-          className=" border-[3px] border-gray-500 p-2 rounded-xl"
+          className="text-white border-[3px] border-gray-500 p-2 rounded-xl"
         >
           {isDark ? <MdNightlightRound /> : <MdWbSunny />}
         </button>
