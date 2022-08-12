@@ -19,9 +19,12 @@ export default function Navbar() {
   }
 
   return (
-    <div className="py-4 w-full border-b-2 px-5 bg-[#0F172A] border-gray-500">
+    <div className="py-4 w-full border-b-2 px-5 bg-[#0F172A] border-gray-500 ">
       <nav className="flex items-start justify-between ">
-        <button onClick={handlerToggle} className="text-2xl translate-y-2">
+        <button
+          onClick={handlerToggle}
+          className="text-2xl text-white translate-y-2"
+        >
           {isOpen ? <MdOutlineClose /> : <HiMenuAlt4 />}
         </button>
         {isOpen && (
@@ -51,7 +54,7 @@ export default function Navbar() {
 
         <button
           onClick={handlerDark}
-          className="border-[3px] border-gray-500 p-2 rounded-xl"
+          className="text-white border-[3px] border-gray-500 p-2 rounded-xl"
         >
           {isDark ? <MdNightlightRound /> : <MdWbSunny />}
         </button>

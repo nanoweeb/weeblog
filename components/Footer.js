@@ -4,7 +4,7 @@ import { SiDiscord, SiFacebook, SiTwitter } from "react-icons/si";
 export default function Footer() {
   return (
     <div className="w-full bg-[#090e1a]">
-      <footer className="max-w-[1000px] mx-auto px-5 mt-80 pt-10 text-gray-200 ">
+      <footer className="max-w-[1000px] mx-auto pt-10 px-5 text-gray-200">
         <div>
           <h1 className="text-lg font-semibold">Central Java, Pati</h1>
           <div className="text-sm text-gray-300 pt-2">
@@ -29,7 +29,7 @@ export default function Footer() {
             <h1 className="text-lg font-semibold pt-10">
               Join Our Social Community
             </h1>
-            <div className="flex gap-5 text-xl">
+            <div className="flex gap-5 text-xl pt-2">
               <a href="">
                 <SiDiscord />
               </a>
@@ -40,6 +40,10 @@ export default function Footer() {
                 <SiTwitter />
               </a>
             </div>
+          </div>
+
+          <div className="pt-14 text-center text-xs">
+            <h1>Copyright© 2022 - nanoweeb team</h1>
           </div>
         </div>
       </footer>
