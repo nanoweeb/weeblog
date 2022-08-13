@@ -18,7 +18,7 @@ export async function getServerSideProps(req, res) {
 export default function detail({ detail }) {
   return (
     <Layout>
-      <div className="w-full bg-[#0F172A]">
+      <div className="w-full h-screen bg-[#0F172A]">
         <main className="max-w-[1000px] px-5 mx-auto pt-6 text-white">
           <article>
             {detail.map((d) => {

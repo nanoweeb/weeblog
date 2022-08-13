@@ -19,7 +19,7 @@ export default function create() {
 
     const createRes = await createReq.json();
 
-    Router.push("/posts");
+    Router.push("/dashboard");
   }
 
   function formHandler(e) {
@@ -45,7 +45,7 @@ export default function create() {
 
   return (
     <Layout>
-      <div className="w-full bg-[#0F172A] pb-10">
+      <div className="w-full h-screen bg-[#0F172A] pb-10">
         <main className="max-w-[1000px] px-5 mx-auto pt-6 ">
           <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-2xl font-semibold mb-10">
             Create a new posts

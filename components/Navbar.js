@@ -38,10 +38,10 @@ export default function Navbar() {
               }}
             >
               <div className="flex flex-col gap-5 absolute top-20 text-xl`">
-                <Link href="/posts">
+                <Link href="/">
                   <a className="border-b-2 py-1 border-gray-500">Posts</a>
                 </Link>
-                <Link href="/">
+                <Link href="/dashboard">
                   <a className="border-b-2 py-1 border-gray-500">Dashboard</a>
                 </Link>
                 <Link href="/">

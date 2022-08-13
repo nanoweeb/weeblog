@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MdArticle, MdEdit, MdDelete } from "react-icons/md";
 
 import { PrismaClient } from "@prisma/client";
 import Layout from "../../components/Layout";
@@ -37,9 +38,21 @@ export default function Posts({ data }) {
                       {p.title}
                     </h1>
                     <p className="text-gray-400 ">{limit(p.content)}</p>
-                    <Link href={"/posts/detail/" + p.endpoint}>
-                      <a className="text-gray-200 text-xs">Read More</a>
-                    </Link>
+
+                    {/* button */}
+                    <div className="w-24 flex items-center gap-2 text-xl text-white">
+                      <Link href={"/posts/detail/" + p.endpoint}>
+                        <a className="text-gray-200">
+                          <MdArticle />
+                        </a>
+                      </Link>
+                      <button>
+                        <MdEdit />
+                      </button>
+                      <button>
+                        <MdDelete />
+                      </button>
+                    </div>
                   </div>
                 );
               })}
