@@ -1,12 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# <p align="center">⌨ Weeblog</p>
 
-## Getting Started
+## Features
 
-First, run the development server:
+kickstart your Blog with Weeblog, Weeblog is a minimalist Blog starter
 
+- ⚛ React 18
+- 💨 Tailwind CSS
+- 🔨 Eslint
+- 🌀 Prettier
+- 📐 Prisma ORM
+- 🎞 Framer Motion
+
+
+## Geting Started
+1. just clone this repository.
 ```bash
-npm run dev
-# or
+git clone https://github.com/nanoweeb/weeblog.git
+```
+
+2. then run this command to instal the dependecies
+```bash
+yarn
+```
+
+3. run to your local browser
+```bash
 yarn dev
 ```
 

@@ -29,7 +29,7 @@ export default function Posts({ data }) {
         method: "DELETE",
       });
 
-      const postFiltered = postState.filter((post) => post.id !== id);
+      const postFiltered = postState.filter((post) => post.id !== id && post);
       setPostState(postFiltered);
     }
   }
