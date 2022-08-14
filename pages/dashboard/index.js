@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Router from "next/router";
 import { MdArticle, MdEdit, MdDelete } from "react-icons/md";
+import Layout from "../../components/Layout";
 
 import { PrismaClient } from "@prisma/client";
-import Layout from "../../components/Layout";
 
 const prisma = new PrismaClient();
 
@@ -16,6 +17,16 @@ export async function getServerSideProps() {
 
 function limit(string = "", limit = 100) {
   return string.substring(0, limit) + "...";
+}
+
+async function deletePost(id) {
+  const ask = confirm("Are you sure want to delete this post?");
+  if (ask === true) {
+    await fetch(`/api/posts/delete/${id}`, {
+      method: "DELETE",
+    });
+    Router.push("/dashboard");
+  }
 }
 
 export default function Posts({ data }) {
@@ -41,7 +52,7 @@ export default function Posts({ data }) {
 
                     {/* button */}
                     <div className="w-24 flex items-center gap-2 text-xl text-white">
-                      <Link href={"/posts/detail/" + p.endpoint}>
+                      <Link href={"/dashboard/detail/" + p.endpoint}>
                         <a className="text-gray-200">
                           <MdArticle />
                         </a>
@@ -49,7 +60,7 @@ export default function Posts({ data }) {
                       <button>
                         <MdEdit />
                       </button>
-                      <button>
+                      <button onClick={deletePost.bind(this, p.id)}>
                         <MdDelete />
                       </button>
                     </div>
