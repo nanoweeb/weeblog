@@ -1,5 +1,5 @@
+import { useState } from "react";
 import Link from "next/link";
-import Router from "next/router";
 import { MdArticle, MdEdit, MdDelete } from "react-icons/md";
 import Layout from "../../components/Layout";
 
@@ -19,17 +19,21 @@ function limit(string = "", limit = 100) {
   return string.substring(0, limit) + "...";
 }
 
-async function deletePost(id) {
-  const ask = confirm("Are you sure want to delete this post?");
-  if (ask === true) {
-    await fetch(`/api/posts/delete/${id}`, {
-      method: "DELETE",
-    });
-    Router.push("/dashboard");
-  }
-}
-
 export default function Posts({ data }) {
+  const [postState, setPostState] = useState(data);
+
+  async function deletePost(id) {
+    const ask = confirm("Are you sure want to delete this post?");
+    if (ask === true) {
+      await fetch(`/api/posts/delete/${id}`, {
+        method: "DELETE",
+      });
+
+      const postFiltered = postState.filter((post) => post.id !== id);
+      setPostState(postFiltered);
+    }
+  }
+
   return (
     <Layout>
       <div className="w-full bg-[#0F172A]">
@@ -39,7 +43,7 @@ export default function Posts({ data }) {
               Weeblog Posts
             </h1>
             <article>
-              {data.map((p) => {
+              {postState.map((p) => {
                 return (
                   <div
                     key={p.id}
