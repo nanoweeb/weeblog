@@ -23,7 +23,7 @@ export default function Posts({ data }) {
   const [postState, setPostState] = useState(data);
 
   async function deletePost(id) {
-    const ask = confirm("Are you sure want to delete this post?");
+    const ask = confirm("Are you sure want to delete this post ?");
     if (ask === true) {
       await fetch(`/api/posts/delete/${id}`, {
         method: "DELETE",
