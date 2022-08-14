@@ -5,8 +5,8 @@
 kickstart your Blog with Weeblog, Weeblog is a minimalist Blog starter
 
 - ⚛ React 18
-- 💨 Tailwind CSS
-- 🔨 Eslint
+- 🍃 Tailwind CSS
+- 📝 Eslint
 - 🌀 Prettier
 - 📐 Prisma ORM
 - 🎞 Framer Motion
