@@ -2,7 +2,7 @@ import Router from "next/router";
 import { useState } from "react";
 import Layout from "../../components/Layout";
 
-export default function create() {
+export default function Create() {
   const [formData, setFormData] = useState({
     title: "",
     content: "",

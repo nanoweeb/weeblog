@@ -7,7 +7,7 @@ export default function Home() {
         <main className="max-w-[1000px] mx-auto px-5 py-10">
           <h1>welcome</h1>
 
-          <h1>halaman untuk post public</h1>
+          <h1 className="">halaman untuk post public</h1>
         </main>
       </div>
     </Layout>
