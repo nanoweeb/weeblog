@@ -27,7 +27,7 @@ export default function Footer() {
 
           <div>
             <h1 className="text-lg font-semibold pt-10">
-              Join Our Social Community
+              Join Our Social Community.
             </h1>
             <div className="flex gap-5 text-xl pt-2">
               <a href="">
