@@ -11,7 +11,8 @@ export async function getServerSideProps(req, res) {
   });
 
   return {
-    props: { detail },
+    // di parse supaya timestamps nya bisa terbaca
+    props: { detail: JSON.parse(JSON.stringify(detail)) },
   };
 }
 

@@ -11,6 +11,7 @@ export async function getStaticProps() {
   const posts = await prisma.Post.findMany();
 
   return {
+    // di parse supaya timestamps nya bisa terbaca
     props: { data: JSON.parse(JSON.stringify(posts)) },
   };
 }
