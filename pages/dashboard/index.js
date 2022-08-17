@@ -7,7 +7,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const posts = await prisma.Post.findMany();
 
   return {
@@ -36,7 +36,7 @@ export default function Posts({ data }) {
 
   return (
     <Layout>
-      <div className="w-full bg-[#0F172A]">
+      <div className="w-full h-screen bg-[#0F172A]">
         <div className="max-w-[1000px] px-5 mx-auto py-10">
           <main>
             <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-xl font-semibold mb-10">
