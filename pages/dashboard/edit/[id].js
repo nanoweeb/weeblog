@@ -6,7 +6,9 @@ const prisma = new PrismaClient();
 export async function getServerSideProps(req, res) {
   const { id } = req.query;
 
-  const detailRes = await prisma.Post.findMany({});
+  const detailRes = await prisma.Post.findMany({
+    where: { id: Number(id) },
+  });
 
   return {
     props: { detail: JSON.parse(JSON.stringify(detailRes)) },
@@ -24,7 +26,7 @@ export default function Edit({ detail }) {
                 Edit Post
               </h1>
 
-              <form className="flex flex-col p-2 text-gray-200">
+              <form key={d.id} className="flex flex-col p-2 text-gray-200">
                 <input
                   name="title"
                   type="text"
