@@ -4,6 +4,7 @@ import { MdArticle, MdEdit, MdDelete } from "react-icons/md";
 import Layout from "../../components/Layout";
 
 import { PrismaClient } from "@prisma/client";
+import Router from "next/router";
 
 const prisma = new PrismaClient();
 
@@ -35,9 +36,13 @@ export default function Posts({ data }) {
     }
   }
 
+  function editPost(id) {
+    Router.push(`/dashboard/edit/${id}`);
+  }
+
   return (
     <Layout>
-      <div className="w-full h-screen bg-[#0F172A]">
+      <div className="w-full bg-[#0F172A]">
         <div className="max-w-[1000px] px-5 mx-auto py-10">
           <main>
             <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-xl font-semibold mb-10">
@@ -63,7 +68,7 @@ export default function Posts({ data }) {
                           <MdArticle />
                         </a>
                       </Link>
-                      <button>
+                      <button onClick={editPost.bind(this, p.id)}>
                         <MdEdit />
                       </button>
                       <button onClick={deletePost.bind(this, p.id)}>
