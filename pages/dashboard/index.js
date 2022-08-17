@@ -8,7 +8,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function getStaticProps() {
-  const posts = await prisma.Post.findMany();
+  const posts = await prisma.Post.findMany({});
 
   return {
     // di parse supaya timestamps nya bisa terbaca
@@ -53,6 +53,7 @@ export default function Posts({ data }) {
                     <h1 className="text-lg font-semibold text-gray-200 ">
                       {p.title}
                     </h1>
+                    <time className="text-gray-400 text-xs">{p.createdAt}</time>
                     <p className="text-gray-400 ">{limit(p.content)}</p>
 
                     {/* button */}
