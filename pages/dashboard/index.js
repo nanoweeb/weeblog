@@ -11,7 +11,7 @@ export async function getStaticProps() {
   const posts = await prisma.Post.findMany();
 
   return {
-    props: { data: posts },
+    props: { data: JSON.parse(JSON.stringify(posts)) },
   };
 }
 

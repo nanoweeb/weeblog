@@ -16,8 +16,10 @@ model User {
 }
 
 model Post {
-  id       Int    @id @default(autoincrement())
-  title    String
-  content  String
-  endpoint String
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String   @db.LongText
+  endpoint  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
