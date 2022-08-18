@@ -37,7 +37,7 @@ export default function Posts({ data }) {
   }
 
   function editPost(id) {
-    Router.push(`/dashboard/edit/${id}`);
+    Router.push(`/dashboard/update/${id}`);
   }
 
   return (

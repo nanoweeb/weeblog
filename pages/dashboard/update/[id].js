@@ -1,4 +1,6 @@
 import Layout from "../../../components/Layout";
+import { useState } from "react";
+import Router from "next/router";
 
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
@@ -10,12 +12,48 @@ export async function getServerSideProps(req, res) {
     where: { id: Number(id) },
   });
 
+  const postId = detailRes.map((post) => post.id);
+
   return {
-    props: { detail: JSON.parse(JSON.stringify(detailRes)) },
+    props: {
+      detail: JSON.parse(JSON.stringify(detailRes)),
+      postId: postId.toString(),
+    },
   };
 }
 
-export default function Edit({ detail }) {
+export default function Update({ detail, postId }) {
+  const [fields, setFields] = useState({
+    title: detail.title,
+    content: detail.content,
+  });
+
+  async function handlerSubmit(e) {
+    e.preventDefault();
+
+    const updateReq = await fetch("/api/posts/update/" + postId[0], {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(fields),
+    });
+
+    const updateRes = await updateReq.json();
+
+    Router.push("/dashboard");
+  }
+
+  function fieldsHandler(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setFields({
+      ...fields,
+      [name]: value,
+    });
+  }
+
   return (
     <Layout>
       {detail.map((d) => {
@@ -26,11 +64,16 @@ export default function Edit({ detail }) {
                 Edit Post
               </h1>
 
-              <form key={d.id} className="flex flex-col p-2 text-gray-200">
+              <form
+                key={d.id}
+                onSubmit={handlerSubmit}
+                className="flex flex-col p-2 text-gray-200"
+              >
                 <input
                   name="title"
                   type="text"
                   placeholder="Title"
+                  onChange={fieldsHandler}
                   defaultValue={d.title}
                   className="mb-2 bg-gray-700 rounded-lg p-2"
                 />
@@ -38,6 +81,7 @@ export default function Edit({ detail }) {
                 <textarea
                   name="content"
                   placeholder="content"
+                  onChange={fieldsHandler}
                   defaultValue={d.content}
                   className="h-24 mb-2 bg-gray-700 rounded-lg p-2"
                 ></textarea>
