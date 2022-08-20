@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@prisma/client": "^4.1.1",
-    "cloudinary-build-url": "^0.2.4",
     "framer-motion": "^7.0.0",
     "next": "12.2.3",
     "react": "18.2.0",
