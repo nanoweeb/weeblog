@@ -32,7 +32,6 @@ export default function Create() {
     function limit(string = "", limit = 40) {
       return string.substring(0, limit);
     }
-    //dadi iki sing di set nk endpoint random, iso title iso content, carane dewe dewe ra reti aku ketoke kudune nggo query selector nk from input e ning drung tak jajal
 
     const endpoint = limit(getEndpoint);
 
