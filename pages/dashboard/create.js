@@ -1,6 +1,43 @@
 import Router from "next/router";
 import { useState } from "react";
 import Layout from "../../components/Layout";
+import dynamic from "next/dynamic";
+import "react-quill/dist/quill.snow.css";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
+const modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link", "image", "video"],
+    ["clean"],
+  ],
+};
+
+const formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+  "image",
+  "video",
+];
 
 export default function Create() {
   const [formData, setFormData] = useState({
@@ -38,10 +75,19 @@ export default function Create() {
     setFormData({
       ...formData,
       [name]: value,
+
       endpoint: endpoint,
     });
   }
 
+  const handleQuill = (value) => {
+    setFormData((prev) => {
+      return {
+        ...prev,
+        content: value,
+      };
+    });
+  };
   return (
     <Layout>
       <div className="w-full h-screen bg-[#0F172A] pb-10">
@@ -59,12 +105,15 @@ export default function Create() {
               className="mb-2 bg-gray-700 rounded-lg p-2"
             />
             <br />
-            <textarea
+            <ReactQuill
               name="content"
-              placeholder="content"
-              onChange={formHandler}
-              className="h-24 mb-2 bg-gray-700 rounded-lg p-2"
-            ></textarea>
+              onChange={handleQuill}
+              className="h-80 mb-2 text-black bg-slate-50 rounded-lg"
+              theme="snow"
+              value={formData.content}
+              modules={modules}
+              formats={formats}
+            />
 
             <button
               type="submit"

@@ -28,7 +28,7 @@ export default function detail({ detail }) {
                   <h1 className="text-xl font-semibold text-center mb-5">
                     {d.title}
                   </h1>
-                  <p className="text-gray-400">{d.content}</p>
+                  <div dangerouslySetInnerHTML={{ __html: d.content }}></div>
                 </div>
               );
             })}

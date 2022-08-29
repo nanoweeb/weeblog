@@ -59,7 +59,10 @@ export default function Posts({ data }) {
                       {p.title}
                     </h1>
                     <time className="text-gray-400 text-xs">{p.createdAt}</time>
-                    <p className="text-gray-400 ">{limit(p.content)}</p>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: limit(p.content) }}
+                      className="text-gray-400"
+                    ></div>
 
                     {/* button */}
                     <div className="w-24 flex items-center gap-2 text-xl text-white">
