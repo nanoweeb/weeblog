@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MdArticle, MdEdit, MdDelete } from "react-icons/md";
 import Layout from "../../components/Layout";
+import Router from "next/router";
 
 import { PrismaClient } from "@prisma/client";
-import Router from "next/router";
 
 const prisma = new PrismaClient();
 

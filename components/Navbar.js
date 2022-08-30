@@ -20,7 +20,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="fixed py-4 w-full border-b-2 px-5 bg-[#0F172A] bg-opacity-30 backdrop-blur-md border-gray-500">
+    <div className="z-50 fixed py-4 w-full border-b-2 px-5 bg-[#0F172A] bg-opacity-30 backdrop-blur-md border-gray-500">
       <nav className="flex items-start justify-between ">
         <button
           onClick={handlerToggle}
@@ -40,13 +40,13 @@ export default function Navbar() {
             >
               <div className="w-full  flex flex-col gap-5 absolute top-20 text-xl`">
                 <Link href="/">
-                  <a className="border-b-2 py-1 border-gray-500">Posts</a>
+                  <a className="border-b-2 py-1 border-gray-500">Home</a>
                 </Link>
                 <Link href="/dashboard">
                   <a className="border-b-2 py-1 border-gray-500">Dashboard</a>
                 </Link>
                 <Link href="/">
-                  <a className="border-b-2 py-1 border-gray-500">Profile</a>
+                  <a className="border-b-2 py-1 border-gray-500">About</a>
                 </Link>
               </div>
             </motion.div>
