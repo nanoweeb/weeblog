@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MdArticle, MdEdit, MdDelete } from "react-icons/md";
 import Layout from "../../components/Layout";
@@ -23,6 +23,11 @@ function limit(string = "", limit = 100) {
 
 export default function Posts({ data }) {
   const [postState, setPostState] = useState(data);
+  const [render, setRender] = useState(false);
+
+  useEffect(() => {
+    setRender(true);
+  }, []);
 
   async function deletePost(id) {
     const ask = confirm("Are you sure want to delete this post ?");
@@ -49,32 +54,36 @@ export default function Posts({ data }) {
               Weeblog Posts
             </h1>
             <article>
-              {postState.map((p) => {
+              {postState.map((post) => {
                 return (
                   <div
-                    key={p.id}
+                    key={post.id}
                     className="shadow-md space-y-6 mb-6 p-4 border-l-4 border-[#066163]"
                   >
                     <h1 className="text-lg font-semibold text-gray-200 ">
-                      {p.title}
+                      {post.title}
                     </h1>
-                    <time className="text-gray-400 text-xs">{p.createdAt}</time>
-                    <div
-                      dangerouslySetInnerHTML={{ __html: limit(p.content) }}
+                    <time className="text-gray-400 text-xs">
+                      {post.createdAt}
+                    </time>
+                    <typography
+                      dangerouslySetInnerHTML={{
+                        __html: render && limit(post.content),
+                      }}
                       className="text-gray-400"
-                    ></div>
+                    ></typography>
 
                     {/* button */}
                     <div className="w-24 flex items-center gap-2 text-xl text-white">
-                      <Link href={"/dashboard/detail/" + p.endpoint}>
+                      <Link href={"/dashboard/detail/" + post.endpoint}>
                         <a className="text-gray-200">
                           <MdArticle />
                         </a>
                       </Link>
-                      <button onClick={editPost.bind(this, p.id)}>
+                      <button onClick={editPost.bind(this, post.id)}>
                         <MdEdit />
                       </button>
-                      <button onClick={deletePost.bind(this, p.id)}>
+                      <button onClick={deletePost.bind(this, post.id)}>
                         <MdDelete />
                       </button>
                     </div>

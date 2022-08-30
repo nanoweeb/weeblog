@@ -58,14 +58,13 @@ export default function Update({ detail, postId }) {
     <Layout>
       {detail.map((d) => {
         return (
-          <div className="w-full h-screen bg-[#0F172A] pb-10">
+          <div key={d.id} className="w-full h-screen bg-[#0F172A] pb-10">
             <main className="max-w-[1000px] px-5 mx-auto pt-6 ">
               <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-2xl font-semibold mb-10">
                 Edit Post
               </h1>
 
               <form
-                key={d.id}
                 onSubmit={handlerSubmit}
                 className="flex flex-col p-2 text-gray-200"
               >

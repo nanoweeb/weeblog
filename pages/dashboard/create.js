@@ -56,7 +56,7 @@ export default function Create() {
 
     const createRes = await createReq.json();
 
-    Router.push("/dashboard");
+    Router.push("/admin/dashboard");
   }
 
   function formHandler(e) {
@@ -104,11 +104,10 @@ export default function Create() {
               onChange={formHandler}
               className="mb-2 bg-gray-700 rounded-lg p-2"
             />
-            <br />
             <ReactQuill
               name="content"
               onChange={handleQuill}
-              className="h-80 mb-2 text-black bg-slate-50 rounded-lg"
+              className="h-64 z-10 text-black bg-slate-50"
               theme="snow"
               value={formData.content}
               modules={modules}
@@ -117,7 +116,7 @@ export default function Create() {
 
             <button
               type="submit"
-              className="py-2 text-gray-200 rounded-lg bg-sky-600 px-12"
+              className="mt-10 py-2 text-gray-200 rounded-lg bg-sky-600 px-12"
             >
               send
             </button>
