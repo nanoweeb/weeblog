@@ -90,7 +90,7 @@ export default function Create() {
   };
   return (
     <Layout>
-      <div className="w-full h-screen bg-[#0F172A] pb-10">
+      <div className="w-full h-full bg-[#0F172A] pb-10">
         <main className="max-w-[1000px] px-5 mx-auto pt-6 ">
           <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-2xl font-semibold mb-10">
             Create a new posts
@@ -102,12 +102,12 @@ export default function Create() {
               type="text"
               placeholder="Title"
               onChange={formHandler}
-              className="mb-2 bg-gray-700 rounded-lg p-2"
+              className="mb-2 bg-slate-50 rounded-lg p-2"
             />
             <ReactQuill
               name="content"
               onChange={handleQuill}
-              className="h-64 z-10 text-black bg-slate-50"
+              className="h-64 overflow-hidden rounded-lg text-black bg-slate-50"
               theme="snow"
               value={formData.content}
               modules={modules}
@@ -116,7 +116,7 @@ export default function Create() {
 
             <button
               type="submit"
-              className="mt-10 py-2 text-gray-200 rounded-lg bg-sky-600 px-12"
+              className="mt-2 py-2 text-gray-200 rounded-lg bg-sky-600 px-12"
             >
               send
             </button>
