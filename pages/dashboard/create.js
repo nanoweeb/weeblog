@@ -56,7 +56,7 @@ export default function Create() {
 
     const createRes = await createReq.json();
 
-    Router.push("/admin/dashboard");
+    Router.push("/dashboard");
   }
 
   function formHandler(e) {

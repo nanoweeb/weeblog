@@ -12,7 +12,7 @@ export async function getStaticProps() {
   };
 }
 
-function limit(string = "", limit = 100) {
+function limit(string = "", limit = 60) {
   return string.substring(0, limit) + "...";
 }
 
@@ -30,8 +30,13 @@ export default function Home({ posts }) {
           {/* featured post */}
           <h2 className="text-2xl text-gray-400 font-bold">Recomendation</h2>
           <article className="flex justify-between mt-5 mb-20">
-            <div className="h-80 w-[40rem] rounded-lg bg-slate-700"></div>
+            <div className="h-80 w-[40rem] rounded-lg bg-slate-700 overflow-hidden">
+              <img src="/hutao.png" alt="" />
+            </div>
             <div className="flex flex-col gap-4">
+              <p className="text-gray-400">
+                Gaming <span className="px-2">•</span> 31 August 2022
+              </p>
               <h1 className="w-72 text-xl font-semibold">
                 Understanding color theory: the color wheel and finding
                 complementary colors
@@ -45,10 +50,11 @@ export default function Home({ posts }) {
           </article>
 
           {/* common post */}
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 gap-10">
             {posts.map((post) => {
               return (
-                <div key={post.id} className="w-72 h-52">
+                <div key={post.id} className="w-72 space-y-2">
+                  <div className="w-full h-36 bg-slate-600 rounded-lg"></div>
                   <h1 className="text-lg font-semibold text-gray-200 ">
                     {post.title}
                   </h1>
