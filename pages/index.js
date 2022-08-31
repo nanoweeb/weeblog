@@ -25,28 +25,30 @@ export default function Home({ posts }) {
 
   return (
     <Layout>
-      <div className="w-full bg-[#0F172A]">
+      <div className="w-full bg-[#0F172A] pb-24">
         <main className="max-w-[1000px] h-full text-gray-200 bg-[#0F172A] pt-20 px-5 mx-auto">
-          <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-5xl font-semibold mb-5">
-            Weeblog
-          </h1>
-          <article class="mt-5">
-            <div class="relative group">
-              <div class="absolute -inset-0.5 bg-gradient-to-r from-[#24a4a7] to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-              <button class="w-full h-32 relative px-7 py-4 bg-[#0c111d] rounded-lg leading-none items-center divide-x divide-gray-600">
-                <div>
-                  <h1 className="text-gray-200 text-lg"></h1>
-                </div>
-              </button>
+          {/* featured post */}
+          <h2 className="text-2xl text-gray-400 font-bold">Recomendation</h2>
+          <article className="flex justify-between mt-5 mb-20">
+            <div className="h-80 w-[40rem] rounded-lg bg-slate-700"></div>
+            <div className="flex flex-col gap-4">
+              <h1 className="w-72 text-xl font-semibold">
+                Understanding color theory: the color wheel and finding
+                complementary colors
+              </h1>
+              <p className="w-72 text-gray-400">
+                Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+                ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+                deserunt reprehenderit elit laborum.{" "}
+              </p>
             </div>
           </article>
-          <div>
+
+          {/* common post */}
+          <div className="grid grid-cols-3">
             {posts.map((post) => {
               return (
-                <div
-                  key={post.id}
-                  className="shadow-md space-y-6 gap-10 p-4 border-l-4 border-[#066163]"
-                >
+                <div key={post.id} className="w-72 h-52">
                   <h1 className="text-lg font-semibold text-gray-200 ">
                     {post.title}
                   </h1>
