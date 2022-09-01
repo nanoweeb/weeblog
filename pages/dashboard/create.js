@@ -117,7 +117,11 @@ export default function Create() {
           </h1>
 
           <form onSubmit={sendPost} className="flex flex-col p-2 text-gray-600">
-            <input type="file" onChange={handlerFileUpload} />
+            <input
+              type="file"
+              onChange={handlerFileUpload}
+              className="block w-full mb-2 text-sm text-gray-200 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-sky-600 file:text-gray-50 hover:file:bg-sky-500"
+            />
             <input
               name="title"
               type="text"

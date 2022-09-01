@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
@@ -53,24 +54,28 @@ export default function Home({ posts }) {
           <div className="grid grid-cols-3 gap-10">
             {posts.map((post) => {
               return (
-                <div key={post.id} className="w-72 space-y-2">
-                  <img
-                    src={post.thumbnail}
-                    className="w-full h-36 bg-slate-600 rounded-lg"
-                  />
-                  <h1 className="text-lg font-semibold text-gray-200 ">
-                    {post.title}
-                  </h1>
-                  <time className="text-gray-400 text-xs">
-                    {post.createdAt}
-                  </time>
-                  <typography
-                    dangerouslySetInnerHTML={{
-                      __html: render && limit(post.content),
-                    }}
-                    className="text-gray-400"
-                  ></typography>
-                </div>
+                <Link href={"/detailPost/" + post.endpoint}>
+                  <a>
+                    <div key={post.id} className="w-72 space-y-2">
+                      <img
+                        src={post.thumbnail}
+                        className="w-full h-36 bg-slate-600 rounded-lg"
+                      />
+                      <h1 className="text-lg font-semibold text-gray-200 ">
+                        {post.title}
+                      </h1>
+                      <time className="text-gray-400 text-xs">
+                        {post.createdAt}
+                      </time>
+                      <typography
+                        dangerouslySetInnerHTML={{
+                          __html: render && limit(post.content),
+                        }}
+                        className="text-gray-400"
+                      ></typography>
+                    </div>
+                  </a>
+                </Link>
               );
             })}
           </div>
