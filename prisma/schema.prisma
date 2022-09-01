@@ -17,6 +17,7 @@ model User {
 
 model Post {
   id        Int      @id @default(autoincrement())
+  thumbnail String   @db.LongText
   title     String
   content   String   @db.LongText
   endpoint  String

@@ -54,7 +54,10 @@ export default function Home({ posts }) {
             {posts.map((post) => {
               return (
                 <div key={post.id} className="w-72 space-y-2">
-                  <div className="w-full h-36 bg-slate-600 rounded-lg"></div>
+                  <img
+                    src={post.thumbnail}
+                    className="w-full h-36 bg-slate-600 rounded-lg"
+                  />
                   <h1 className="text-lg font-semibold text-gray-200 ">
                     {post.title}
                   </h1>

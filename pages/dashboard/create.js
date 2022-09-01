@@ -41,6 +41,7 @@ const formats = [
 
 export default function Create() {
   const [formData, setFormData] = useState({
+    thumbnail: "",
     title: "",
     content: "",
     endpoint: "",
@@ -88,6 +89,25 @@ export default function Create() {
       };
     });
   };
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
+  const handlerFileUpload = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    setFormData({
+      ...formData,
+      thumbnail: base64,
+    });
+  };
+
   return (
     <Layout>
       <div className="w-full h-full bg-[#0F172A] pb-10">
@@ -96,7 +116,8 @@ export default function Create() {
             Create a new posts
           </h1>
 
-          <form onSubmit={sendPost} className="flex flex-col p-2 text-gray-200">
+          <form onSubmit={sendPost} className="flex flex-col p-2 text-gray-600">
+            <input type="file" onChange={handlerFileUpload} />
             <input
               name="title"
               type="text"
