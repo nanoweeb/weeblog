@@ -116,7 +116,7 @@ export default function Create() {
             Create a new posts
           </h1>
 
-          <form onSubmit={sendPost} className="flex flex-col p-2 text-gray-600">
+          <form onSubmit={sendPost} className="flex flex-col text-gray-600">
             <input
               type="file"
               onChange={handlerFileUpload}

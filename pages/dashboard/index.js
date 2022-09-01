@@ -42,7 +42,7 @@ export default function Posts({ data }) {
   }
 
   function editPost(id) {
-    Router.push(`/dashboard/update/${id}`);
+    Router.replace(`/dashboard/update/${id}`);
   }
 
   return (
