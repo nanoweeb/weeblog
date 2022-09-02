@@ -32,11 +32,11 @@ export default function Home({ posts }) {
           {/* featured post */}
           <h2 className="text-2xl text-gray-400 font-bold">Recomendation</h2>
           <article className="flex justify-between mt-5 mb-20 gap-5">
-            <div className="h-80 w-full rounded-lg bg-slate-700 overflow-hidden">
+            <div className="flex justify-center item-center h-80 w-full rounded-lg bg-black overflow-hidden">
               <Image
-                src="/hutao.png"
-                width="1000px"
-                height="500px"
+                src="/nanoweeb.png"
+                width="300px"
+                height="300px"
                 alt="hutao"
               />
             </div>
