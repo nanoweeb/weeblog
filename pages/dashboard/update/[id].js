@@ -144,7 +144,7 @@ export default function Update({ detail, postId }) {
                   placeholder="Title"
                   onChange={fieldsHandler}
                   defaultValue={d.title}
-                  className="-mb-4 bg-slate-50 rounded-lg p-2"
+                  className="mb-2 bg-slate-50 rounded-lg p-2"
                 />
                 <br />
 
