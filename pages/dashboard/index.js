@@ -8,7 +8,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const posts = await prisma.Post.findMany({});
 
   return {
