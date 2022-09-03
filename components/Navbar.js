@@ -20,7 +20,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="z-50 fixed py-4 w-full border-b-2 px-5 bg-[#0F172A] bg-opacity-50 backdrop-blur-md border-gray-500">
+    <div className="z-50 fixed py-4 w-full border-b-2 px-5 bg-[#0F172A]  border-gray-500">
       <nav className="flex items-start justify-between ">
         <button
           onClick={handlerToggle}
@@ -29,7 +29,7 @@ export default function Navbar() {
           {isOpen ? <MdOutlineClose /> : <HiMenuAlt4 />}
         </button>
         {isOpen && (
-          <div className="h-56 w-full text-gray-200 absolute top-14 left-0 px-5 py-10 bg-[#0F172A] bg-opacity-50 backdrop-blur-md">
+          <div className="z-50 h-screen w-full text-gray-200 absolute top-14 inset-0 px-5 py-10 bg-[#0F172A] ">
             <motion.div
               animate={{ y: -100 }}
               transition={{

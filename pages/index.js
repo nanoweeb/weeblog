@@ -14,7 +14,7 @@ export async function getServerSideProps() {
   };
 }
 
-function limit(string = "", limit = 60) {
+function limit(string = "", limit = 40) {
   return string.substring(0, limit) + "...";
 }
 
@@ -51,37 +51,41 @@ export default function Home({ posts }) {
               <p className="w-72 text-gray-400">
                 Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
                 ullamco cillum dolor. Voluptate exercitation incididunt aliquip
-                deserunt reprehenderit elit laborum.{" "}
+                deserunt reprehenderit elit laborum.
               </p>
             </div>
           </article>
 
           {/* common post */}
-          <div className="grid grid-cols-3 gap-10">
+          <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
             {posts.map((post) => {
               return (
                 <Link key={post.id} href={"/detailPost/" + post.endpoint}>
-                  <a className="w-72 space-y-2">
-                    <Image
-                      layout="responsive"
-                      width="100%"
-                      height="55px"
-                      src={post.thumbnail}
-                      alt={post.title}
-                      className="rounded-lg"
-                    />
-                    <h1 className="text-lg font-semibold text-gray-200 ">
-                      {post.title}
-                    </h1>
-                    <time className="text-gray-400 text-xs">
-                      {post.createdAt}
-                    </time>
-                    <typography
-                      dangerouslySetInnerHTML={{
-                        __html: render && limit(post.content),
-                      }}
-                      className="text-gray-400"
-                    ></typography>
+                  <a className="w-full flex flex-row-reverse sm:flex-col justify-between sm:justify-start items-center sm:items-start mx-auto space-y-2 p-4 rounded-lg">
+                    <div className="w-32 sm:w-full">
+                      <Image
+                        layout="responsive"
+                        width="100%"
+                        height="55px"
+                        src={post.thumbnail}
+                        alt={post.title}
+                        className="rounded-lg"
+                      />
+                    </div>
+                    <div>
+                      <h1 className="text-md font-semibold text-gray-200 ">
+                        {post.title}
+                      </h1>
+                      <time className="text-gray-400 text-xs">
+                        {post.createdAt}
+                      </time>
+                      <typography
+                        dangerouslySetInnerHTML={{
+                          __html: render && limit(post.content),
+                        }}
+                        className="text-gray-400 text-sm"
+                      ></typography>
+                    </div>
                   </a>
                 </Link>
               );
