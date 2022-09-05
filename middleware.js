@@ -1,3 +1,1 @@
-export function middleware(request) {
-  console.log(request.url);
-}
+export function middleware(request) {}
