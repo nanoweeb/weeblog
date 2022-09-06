@@ -41,7 +41,7 @@ export default function Posts({ data }) {
       setPostState(postFiltered);
 
       toast("Deleted Successfully", {
-        icon: "👏",
+        icon: "🎉",
         style: {
           borderRadius: "10px",
           background: "#166061",
