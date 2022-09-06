@@ -49,6 +49,7 @@ export default function Create() {
 
   async function sendPost(e) {
     e.preventDefault();
+
     const createReq = await fetch("/api/posts/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

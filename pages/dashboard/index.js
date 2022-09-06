@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MdArticle, MdEdit, MdDelete } from "react-icons/md";
+import toast, { Toaster } from "react-hot-toast";
 import Layout from "../../components/Layout";
 import Router from "next/router";
 
@@ -38,6 +39,15 @@ export default function Posts({ data }) {
 
       const postFiltered = postState.filter((post) => post.id !== id && post);
       setPostState(postFiltered);
+
+      toast("Deleted Successfully", {
+        icon: "👏",
+        style: {
+          borderRadius: "10px",
+          background: "#166061",
+          color: "#fff",
+        },
+      });
     }
   }
 
@@ -85,6 +95,7 @@ export default function Posts({ data }) {
                       </button>
                       <button onClick={deletePost.bind(this, post.id)}>
                         <MdDelete />
+                        <Toaster />
                       </button>
                     </div>
                   </div>
