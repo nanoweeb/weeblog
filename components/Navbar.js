@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <div className="w-full flex justify-between md:justify-end gap-5 z-50 fixed py-4 border-b-2 px-5 bg-[#0F172A] border-gray-500">
       {/* desktop navbar */}
-      <div className="w-[1000px] flex justify-end gap-10 mx-auto">
+      <div className="flex w-[1000px] justify-between md:justify-end md:gap-10 md:mx-auto">
         <nav className="hidden md:block">
           <div className="flex gap-10">
             <div className="w-full text-white flex gap-5 text-xl`">
