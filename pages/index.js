@@ -43,7 +43,7 @@ export default function Home({ posts }) {
                 Understanding color theory: the color wheel and finding
                 complementary colors
               </h1>
-              <p className=" text-gray-400">
+              <p className=" text-gray-400 ">
                 Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
                 ullamco cillum dolor. Voluptate exercitation incididunt aliquip
                 deserunt reprehenderit elit laborum.

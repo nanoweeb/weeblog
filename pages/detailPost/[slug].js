@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import Layout from "../../components/Layout";
+import Image from "next/image";
 
 const prisma = new PrismaClient();
 
@@ -25,14 +26,27 @@ export default function detail({ detail }) {
             {detail.map((d) => {
               return (
                 <div key={d.id}>
-                  <h1 className="text-xl font-semibold text-center mb-5">
+                  <div className="mb-5">
+                    <Image
+                      src={d.thumbnail}
+                      width="1000px"
+                      height="500"
+                      alt={d.title}
+                    />
+                  </div>
+                  <h1 className="text-3xl font-semibold text-center mb-10">
                     {d.title}
                   </h1>
-                  <div dangerouslySetInnerHTML={{ __html: d.content }}></div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: d.content }}
+                    className="text-gray-400 text-lg"
+                  ></div>
                 </div>
               );
             })}
           </article>
+
+          <form></form>
         </main>
       </div>
     </Layout>
