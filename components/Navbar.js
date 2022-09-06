@@ -20,46 +20,66 @@ export default function Navbar() {
   }
 
   return (
-    <div className="z-50 fixed py-4 w-full border-b-2 px-5 bg-[#0F172A]  border-gray-500">
-      <nav className="flex items-start justify-between ">
-        <button
-          onClick={handlerToggle}
-          className="text-2xl text-white translate-y-2"
-        >
-          {isOpen ? <MdOutlineClose /> : <HiMenuAlt4 />}
-        </button>
-        {isOpen && (
-          <div className="z-50 h-screen w-full text-gray-200 absolute top-14 inset-0 px-5 py-10 bg-[#0F172A] ">
-            <motion.div
-              animate={{ y: -100 }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 10,
-              }}
-            >
-              <div className="w-full  flex flex-col gap-5 absolute top-20 text-xl`">
-                <Link href="/">
-                  <a className="border-b-2 py-1 border-gray-500">Home</a>
-                </Link>
-                <Link href="/dashboard">
-                  <a className="border-b-2 py-1 border-gray-500">Dashboard</a>
-                </Link>
-                <Link href="/">
-                  <a className="border-b-2 py-1 border-gray-500">About</a>
-                </Link>
-              </div>
-            </motion.div>
+    <div className="w-full flex justify-between md:justify-end gap-5 z-50 fixed py-4 border-b-2 px-5 bg-[#0F172A] border-gray-500">
+      {/* desktop navbar */}
+      <nav className="hidden md:block">
+        <div className=" flex gap-10">
+          <div className="w-full text-white flex gap-5 text-xl`">
+            <Link href="/">
+              <a className="py-1">Home</a>
+            </Link>
+            <Link href="/dashboard">
+              <a className="py-1">Dashboard</a>
+            </Link>
+            <Link href="/">
+              <a className="py-1">About</a>
+            </Link>
           </div>
-        )}
-
-        <button
-          onClick={handlerDark}
-          className="text-white border-[3px] border-gray-500 p-2 rounded-xl"
-        >
-          {isDark ? <MdNightlightRound /> : <MdWbSunny />}
-        </button>
+        </div>
       </nav>
+
+      {/* mobile navbaar */}
+      <nav>
+        <div className="md:hidden">
+          <button
+            onClick={handlerToggle}
+            className="text-2xl text-white translate-y-2"
+          >
+            {isOpen ? <MdOutlineClose /> : <HiMenuAlt4 />}
+          </button>
+          {isOpen && (
+            <div className="z-50 h-screen w-full text-gray-200 absolute top-14 inset-0 px-5 py-10 bg-[#0F172A] ">
+              <motion.div
+                animate={{ y: -100 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 10,
+                }}
+              >
+                <div className="w-full  flex flex-col gap-5 absolute top-20 text-xl`">
+                  <Link href="/">
+                    <a className="border-b-2 py-1 border-gray-500">Home</a>
+                  </Link>
+                  <Link href="/dashboard">
+                    <a className="border-b-2 py-1 border-gray-500">Dashboard</a>
+                  </Link>
+                  <Link href="/">
+                    <a className="border-b-2 py-1 border-gray-500">About</a>
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </div>
+      </nav>
+
+      <button
+        onClick={handlerDark}
+        className="text-white border-[3px] border-gray-500 p-2 rounded-xl"
+      >
+        {isDark ? <MdNightlightRound /> : <MdWbSunny />}
+      </button>
     </div>
   );
 }
