@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MdArticle, MdEdit, MdDelete } from "react-icons/md";
 import toast, { Toaster } from "react-hot-toast";
-import Layout from "../../components/Layout";
+import Layout from "../../../components/Layout";
 import Router from "next/router";
 
 import { PrismaClient } from "@prisma/client";
@@ -52,7 +52,7 @@ export default function Posts({ data }) {
   }
 
   function editPost(id) {
-    Router.replace(`/dashboard/update/${id}`);
+    Router.replace(`/admin/dashboard/update/${id}`);
   }
 
   return (
@@ -65,7 +65,7 @@ export default function Posts({ data }) {
                 Weeblog Posts
               </h1>
 
-              <Link href="/dashboard/create">
+              <Link href="/admin/dashboard/create">
                 <a className="py-2 px-10 rounded-md text-lg font-semibold text-gray-200 bg-sky-600 hover:bg-sky-500 duration-200">
                   + New Post
                 </a>
@@ -93,7 +93,7 @@ export default function Posts({ data }) {
 
                     {/* button */}
                     <div className="w-24 flex items-center gap-2 text-xl text-white">
-                      <Link href={"/dashboard/detail/" + post.endpoint}>
+                      <Link href={"/admin/dashboard/detail/" + post.endpoint}>
                         <a className="text-gray-200">
                           <MdArticle />
                         </a>

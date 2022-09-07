@@ -1,6 +1,6 @@
 import Router from "next/router";
 import { useEffect, useState } from "react";
-import Layout from "../../components/Layout";
+import Layout from "../../../components/Layout";
 import toast, { Toaster } from "react-hot-toast";
 
 import dynamic from "next/dynamic";
@@ -74,7 +74,7 @@ export default function Create() {
 
     const createRes = await createReq.json();
 
-    Router.push("/dashboard");
+    Router.push("/admin/dashboard");
   }
 
   useEffect(() => {});
@@ -160,7 +160,7 @@ export default function Create() {
 
             <button
               type="submit"
-              className="mt-2 py-2 text-gray-200 rounded-lg bg-sky-600 px-12"
+              className="mt-2 py-2 text-gray-100 rounded-lg bg-sky-600 px-12"
             >
               send
             </button>

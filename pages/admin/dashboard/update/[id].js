@@ -1,4 +1,4 @@
-import Layout from "../../../components/Layout";
+import Layout from "../../../../components/Layout";
 import { useState } from "react";
 import Router from "next/router";
 import dynamic from "next/dynamic";
