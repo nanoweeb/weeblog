@@ -20,12 +20,12 @@ export async function getServerSideProps(req, res) {
 export default function detail({ detail }) {
   return (
     <Layout>
-      <div className="w-full h-screen bg-[#0F172A] pt-20">
+      <div className="w-full bg-[#0F172A] pt-20">
         <main className="max-w-[1000px] px-5 mx-auto pt-6 text-white">
           <article>
             {detail.map((d) => {
               return (
-                <div key={d.id}>
+                <div key={d.id} className="h-screen">
                   <div className="mb-5">
                     <Image
                       src={d.thumbnail}
@@ -45,8 +45,6 @@ export default function detail({ detail }) {
               );
             })}
           </article>
-
-          <form></form>
         </main>
       </div>
     </Layout>

@@ -41,10 +41,10 @@ export default function Posts({ data }) {
       setPostState(postFiltered);
 
       toast("Deleted Successfully", {
-        icon: "🎉",
+        icon: "✅",
         style: {
           borderRadius: "10px",
-          background: "#166061",
+          background: "#263558",
           color: "#fff",
         },
       });
@@ -57,7 +57,7 @@ export default function Posts({ data }) {
 
   return (
     <Layout>
-      <div className="w-full bg-[#0F172A] pt-16">
+      <div className="w-full bg-[#131d35] pt-16">
         <div className="max-w-[1000px] px-5 mx-auto py-10">
           <main>
             <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-xl font-semibold mb-10">

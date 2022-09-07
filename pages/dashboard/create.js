@@ -1,6 +1,8 @@
 import Router from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
+import toast, { Toaster } from "react-hot-toast";
+
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 
@@ -50,16 +52,32 @@ export default function Create() {
   async function sendPost(e) {
     e.preventDefault();
 
-    const createReq = await fetch("/api/posts/create", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    const createReq = await toast.promise(
+      fetch("/api/posts/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }),
+      {
+        loading: "Creating...",
+        success: "Created Successfully",
+        error: "Failed to create",
+      },
+      {
+        style: {
+          borderRadius: "10px",
+          background: "#263558",
+          color: "#fff",
+        },
+      }
+    );
 
     const createRes = await createReq.json();
 
     Router.push("/dashboard");
   }
+
+  useEffect(() => {});
 
   function formHandler(e) {
     const value = e.target.value;
@@ -111,7 +129,7 @@ export default function Create() {
 
   return (
     <Layout>
-      <div className="w-full h-full bg-[#0F172A] pb-10">
+      <div className="w-full h-full bg-[#1d2b4d] pb-10">
         <main className="max-w-[1000px] px-5 mx-auto pt-6 ">
           <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-2xl font-semibold mb-10">
             Create a new posts
@@ -146,6 +164,7 @@ export default function Create() {
             >
               send
             </button>
+            <Toaster />
           </form>
         </main>
       </div>

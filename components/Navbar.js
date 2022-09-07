@@ -24,18 +24,16 @@ export default function Navbar() {
       {/* desktop navbar */}
       <div className="flex w-[1000px] justify-between md:justify-end md:gap-10 md:mx-auto">
         <nav className="hidden md:block">
-          <div className="flex gap-10">
-            <div className="w-full text-white flex gap-5 text-xl`">
-              <Link href="/">
-                <a className="py-1">Home</a>
-              </Link>
-              <Link href="/dashboard">
-                <a className="py-1">Dashboard</a>
-              </Link>
-              <Link href="/">
-                <a className="py-1">About</a>
-              </Link>
-            </div>
+          <div className="w-full flex text-white gap-5 text-xl`">
+            <Link href="/">
+              <a className="py-1">Home</a>
+            </Link>
+            <Link href="/dashboard">
+              <a className="py-1">Dashboard</a>
+            </Link>
+            <Link href="/">
+              <a className="py-1">About</a>
+            </Link>
           </div>
         </nav>
 

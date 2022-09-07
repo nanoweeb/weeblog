@@ -3,7 +3,7 @@ import { SiDiscord, SiFacebook, SiTwitter } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <div className="w-full bg-[#090e1a] pb-10">
+    <div className="w-full bg-[#090e1a] pb-10 bottom-0 relative">
       <footer className="max-w-[1000px] mx-auto pt-10 px-5 text-gray-200">
         <div>
           <h1 className="text-lg font-semibold">Central Java, Pati</h1>
