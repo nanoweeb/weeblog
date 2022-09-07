@@ -60,9 +60,17 @@ export default function Posts({ data }) {
       <div className="w-full bg-[#131d35] pt-16">
         <div className="max-w-[1000px] px-5 mx-auto py-10">
           <main>
-            <h1 className="bg-gradient-to-r bg-clip-text text-transparent from-[#24a4a7] to-indigo-600 text-xl font-semibold mb-10">
-              Weeblog Posts
-            </h1>
+            <div className="mb-10">
+              <h1 className="bg-gradient-to-r bg-clip-text text-transparent text-3xl font-semibold from-[#24a4a7] to-indigo-600 mb-10">
+                Weeblog Posts
+              </h1>
+
+              <Link href="/dashboard/create">
+                <a className="py-2 px-10 rounded-md text-lg font-semibold text-gray-200 bg-sky-600 hover:bg-sky-500 duration-200">
+                  + New Post
+                </a>
+              </Link>
+            </div>
             <article>
               {postState.map((post) => {
                 return (
