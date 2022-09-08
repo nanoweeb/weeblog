@@ -40,7 +40,7 @@ export default function Posts({ data }) {
       const postFiltered = postState.filter((post) => post.id !== id && post);
       setPostState(postFiltered);
 
-      toast("Deleted Successfully", {
+      toast("Deleted", {
         icon: "✅",
         style: {
           borderRadius: "10px",

@@ -57,7 +57,7 @@ export default function Home({ posts }) {
               return (
                 <Link key={post.id} href={"/detailPost/" + post.endpoint}>
                   <a className="w-full flex flex-row-reverse sm:flex-col justify-between sm:justify-start items-center sm:items-start mx-auto space-y-2 p-4 rounded-lg">
-                    <div className="w-32 sm:w-full">
+                    <div className="w-32 sm:w-full bg-slate-700">
                       <Image
                         layout="responsive"
                         width="100%"
