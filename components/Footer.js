@@ -47,6 +47,7 @@ export default function Footer() {
               Build with <span>💖 </span>
               <a
                 href="https://github.com/nanoweeb"
+                target="_blank"
                 className="text-sky-400 underline"
               >
                 Nanoweeb-Team
