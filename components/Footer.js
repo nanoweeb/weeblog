@@ -42,8 +42,17 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="pt-14 text-center text-xs">
-            <h1>Copyright© 2022 - nanoweeb team</h1>
+          <div className="pt-14 text-sm">
+            <p>
+              Build with <span>💖 </span>
+              <a
+                href="https://github.com/nanoweeb"
+                className="text-sky-400 underline"
+              >
+                Nanoweeb-Team
+              </a>
+            </p>
+            <p>©2022 - All Rights Reserved</p>
           </div>
         </div>
       </footer>
