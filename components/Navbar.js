@@ -60,7 +60,7 @@ export default function Navbar() {
                     <Link href="/">
                       <a className="border-b-2 py-1 border-gray-500">Home</a>
                     </Link>
-                    <Link href="/dashboard">
+                    <Link href="/admin/dashboard">
                       <a className="border-b-2 py-1 border-gray-500">
                         Dashboard
                       </a>
