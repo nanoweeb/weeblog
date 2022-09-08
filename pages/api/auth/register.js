@@ -10,9 +10,9 @@ export default async function handler(req, res) {
     data,
   });
 
-  res.status(200)
+  res.status(200);
   res.json({
     message: "register berhasil",
-    data
-  })
+    data,
+  });
 }
