@@ -74,12 +74,12 @@ export default function Home({ posts }) {
                       <time className="text-gray-400 text-xs">
                         {post.createdAt}
                       </time>
-                      <typography
+                      <div
                         dangerouslySetInnerHTML={{
                           __html: render && limit(post.content),
                         }}
                         className="text-gray-400 text-sm"
-                      ></typography>
+                      ></div>
                     </div>
                   </a>
                 </Link>

@@ -84,12 +84,12 @@ export default function Posts({ data }) {
                     <time className="text-gray-400 text-xs">
                       {post.createdAt}
                     </time>
-                    <typography
+                    <div
                       dangerouslySetInnerHTML={{
                         __html: render && limit(post.content),
                       }}
                       className="text-gray-400"
-                    ></typography>
+                    ></div>
 
                     {/* button */}
                     <div className="w-24 flex items-center gap-2 text-xl text-white">
