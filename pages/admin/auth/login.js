@@ -1,25 +1,29 @@
 import { useState } from "react";
+import cookie from "js-cookie";
 import Router from "next/router";
+import Link from "next/link";
 
-export default function Register() {
+export default function Login() {
   const [data, setData] = useState({
-    username: "",
     email: "",
     password: "",
   });
 
-  async function register(e) {
+  async function submitHandler(e) {
     e.preventDefault();
 
-    const createReq = await fetch("/api/auth/register", {
+    const loginReq = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
 
-    const createRes = await createReq.json();
+    const loginRes = await loginReq.json();
 
-    console.log("register berhasil");
+    console.log("jwt :" + loginRes.token);
+
+    cookie.set("token", loginRes.token);
+
     Router.push("/admin/dashboard");
   }
 
@@ -38,16 +42,8 @@ export default function Register() {
   return (
     <div className="bg-black">
       <div className="bg-slate-800 container mx-auto">
-        <form onSubmit={register}>
-          <h2 className="text-2xl text-white">Register</h2>
-          <input
-            name="username"
-            type="text"
-            placeholder="username"
-            className="border-2 border-white rounded-sm"
-            onChange={formHandler}
-          />
-          <br />
+        <form onSubmit={submitHandler}>
+          <h2 className="text-2xl text-white">Login</h2>
           <input
             name="email"
             type="text"
@@ -62,13 +58,13 @@ export default function Register() {
             placeholder="password"
             className="border-2 border-white rounded-sm"
             onChange={formHandler}
-          />{" "}
+          />
           <br />
           <button
             type="submit"
             className="text-white bg-blue-600 px-6 m-4 rounded-sm"
           >
-            Register
+            Login
           </button>
         </form>
       </div>
