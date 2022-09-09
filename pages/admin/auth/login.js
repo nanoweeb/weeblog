@@ -46,7 +46,12 @@ export default function Login() {
         <form onSubmit={submitHandler}>
           <div className="text-gray-200 mb-10">
             <h1 className="text-5xl">Welcome Back Folks 🎉</h1>
-            <p>if you don't have account try to sign-up</p>
+            <p>
+              if you don't have account try to{" "}
+              <a href="/auth/register" className="text-sky-400">
+                Sign-up
+              </a>
+            </p>
           </div>
           {/* input area */}
           <div className="flex flex-col gap-2">
@@ -54,17 +59,17 @@ export default function Login() {
               name="email"
               type="text"
               placeholder="email"
-              className="w-full p-2 rounded-md"
+              className="w-full p-2 rounded-md bg-slate-300 border-2 border-slate-500"
               onChange={formHandler}
             />
             <input
               name="password"
-              type="text"
+              type="password"
               placeholder="password"
-              className="w-full p-2 rounded-md"
+              className="w-full p-2 rounded-md bg-slate-300 border-2 border-slate-500"
               onChange={formHandler}
             />
-            <p className="text-pink-600">Forget password ?</p>
+            <p className="text-pink-500 ml-auto">Forget password ?</p>
             <button
               type="submit"
               className="p-2 text-white bg-blue-600 rounded-md"
