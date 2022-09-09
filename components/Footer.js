@@ -48,6 +48,7 @@ export default function Footer() {
               <a
                 href="https://github.com/nanoweeb"
                 target="_blank"
+                rel="noreferrer"
                 className="text-sky-400 underline"
               >
                 Nanoweeb-Team

@@ -43,6 +43,7 @@ export default function Posts({ data }) {
       toast("Deleted", {
         icon: "✅",
         style: {
+          fontSize: "1rem",
           borderRadius: "10px",
           background: "#263558",
           color: "#fff",
