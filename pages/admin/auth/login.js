@@ -62,10 +62,12 @@ export default function Login() {
           <div className="text-gray-200 mb-10">
             <h1 className="text-5xl">Welcome Back Folks 🎉</h1>
             <p>
-              if you don't have account try to
-              <a href="/admin/auth/register" className="text-sky-400">
-                <span> Sign-up</span>
-              </a>
+              if you dont have account try to
+              <Link href="/admin/auth/register">
+                <a className="text-sky-400">
+                  <span>Sign-up</span>
+                </a>
+              </Link>
             </p>
           </div>
           {/* input area */}

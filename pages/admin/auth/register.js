@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Router from "next/router";
+import Link from "next/link";
 import Layout from "../../../components/Layout";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -58,10 +59,12 @@ export default function Register() {
           <div className="text-gray-200 mb-10">
             <h1 className="text-5xl">Sign up to start ✍🏻</h1>
             <p>
-              Already have an account?
-              <a href="/admin/auth/login" className="text-sky-400">
-                Sign-in
-              </a>
+              Already have an account ?
+              <Link href="/admin/auth/login">
+                <a className="text-sky-400">
+                  <span>Sign-in</span>
+                </a>
+              </Link>
             </p>
           </div>
           {/* input area */}
