@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Router from "next/router";
+import Layout from "../../../components/Layout";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Register() {
   const [data, setData] = useState({
@@ -11,11 +13,25 @@ export default function Register() {
   async function register(e) {
     e.preventDefault();
 
-    const createReq = await fetch("/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    const createReq = await toast.promise(
+      fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }),
+      {
+        loading: "Registering...",
+        success: "Register Successfully",
+        error: "Failed to Register",
+      },
+      {
+        style: {
+          borderRadius: "10px",
+          background: "#263558",
+          color: "#fff",
+        },
+      }
+    );
 
     const createRes = await createReq.json();
 
@@ -36,42 +52,52 @@ export default function Register() {
   }
 
   return (
-    <div className="bg-black">
-      <div className="bg-slate-800 container mx-auto">
+    <Layout>
+      <div className="w-full h-screen flex justify-center items-center bg-[#131d35]">
         <form onSubmit={register}>
-          <h2 className="text-2xl text-white">Register</h2>
-          <input
-            name="username"
-            type="text"
-            placeholder="username"
-            className="border-2 border-white rounded-sm"
-            onChange={formHandler}
-          />
-          <br />
-          <input
-            name="email"
-            type="text"
-            placeholder="email"
-            className="border-2 border-white rounded-sm"
-            onChange={formHandler}
-          />
-          <br />
-          <input
-            name="password"
-            type="text"
-            placeholder="password"
-            className="border-2 border-white rounded-sm"
-            onChange={formHandler}
-          />{" "}
-          <br />
-          <button
-            type="submit"
-            className="text-white bg-blue-600 px-6 m-4 rounded-sm"
-          >
-            Register
-          </button>
+          <div className="text-gray-200 mb-10">
+            <h1 className="text-5xl">Sign up to start ✍🏻</h1>
+            <p>
+              Already have an account?
+              <a href="/admin/auth/login" className="text-sky-400">
+                Sign-in
+              </a>
+            </p>
+          </div>
+          {/* input area */}
+          <div className="flex flex-col gap-2">
+            <input
+              name="email"
+              type="text"
+              placeholder="email"
+              className="w-full p-2 rounded-md bg-slate-300 border-2 border-slate-500"
+              onChange={formHandler}
+            />
+            <input
+              name="username"
+              type="text"
+              placeholder="your username"
+              className="w-full p-2 rounded-md bg-slate-300 border-2 border-slate-500"
+              onChange={formHandler}
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="password"
+              className="w-full p-2 rounded-md bg-slate-300 border-2 border-slate-500"
+              onChange={formHandler}
+            />
+
+            <button
+              type="submit"
+              className="p-2 text-white bg-blue-600 rounded-md"
+            >
+              Sign up
+            </button>
+          </div>
         </form>
+        <Toaster />
       </div>
-    </div>
+    </Layout>
   );
 }

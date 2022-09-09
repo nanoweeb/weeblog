@@ -3,6 +3,7 @@ import cookie from "js-cookie";
 import Router from "next/router";
 import Link from "next/link";
 import Layout from "../../../components/Layout";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Login() {
   const [data, setData] = useState({
@@ -13,11 +14,25 @@ export default function Login() {
   async function submitHandler(e) {
     e.preventDefault();
 
-    const loginReq = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    const loginReq = await toast.promise(
+      fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }),
+      {
+        loading: "Loging In...",
+        success: "Login Successfully",
+        error: "Failed to Login",
+      },
+      {
+        style: {
+          borderRadius: "10px",
+          background: "#263558",
+          color: "#fff",
+        },
+      }
+    );
 
     const loginRes = await loginReq.json();
 
@@ -47,9 +62,9 @@ export default function Login() {
           <div className="text-gray-200 mb-10">
             <h1 className="text-5xl">Welcome Back Folks 🎉</h1>
             <p>
-              if you don't have account try to{" "}
-              <a href="/auth/register" className="text-sky-400">
-                Sign-up
+              if you don't have account try to
+              <a href="/admin/auth/register" className="text-sky-400">
+                <span> Sign-up</span>
               </a>
             </p>
           </div>
@@ -78,6 +93,7 @@ export default function Login() {
             </button>
           </div>
         </form>
+        <Toaster />
       </div>
     </Layout>
   );
