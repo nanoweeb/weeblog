@@ -1,3 +1,3 @@
-export default function index() {
+export default function admin() {
   return <div>index admin</div>;
 }
