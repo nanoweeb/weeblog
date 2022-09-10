@@ -36,11 +36,9 @@ export default function Login() {
 
     const loginRes = await loginReq.json();
 
-    console.log("jwt :" + loginRes.token);
-
     cookie.set("token", loginRes.token);
 
-    Router.push("/admin/dashboard");
+    Router.push("/admin");
   }
 
   function formHandler(e) {
