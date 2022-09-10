@@ -22,7 +22,7 @@ function limit(string = "", limit = 100) {
   return string.substring(0, limit) + "...";
 }
 
-export default function Posts({ data }) {
+export default function dashboard({ data }) {
   const [postState, setPostState] = useState(data);
   const [render, setRender] = useState(false);
 
