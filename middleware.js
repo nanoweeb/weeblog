@@ -4,17 +4,20 @@ export async function middleware(req) {
   if (req.nextUrl.pathname.startsWith("/admin/auth/login")) {
     const token = await req.cookies.get("token");
 
-    console.log(token);
     if (token) {
-      return NextResponse.redirect(new URL("/admin", req.url));
+      return NextResponse.redirect(
+        new URL("/admin/dashboard", req.nextUrl.origin)
+      );
     }
   }
 
-  if (req.nextUrl.pathname.startsWith("/admin")) {
+  if (req.nextUrl.pathname.startsWith("/admin/dashboard")) {
     const token = await req.cookies.get("token");
 
     if (!token) {
-      return NextResponse.redirect(new URL("/admin/auth/login", req.url));
+      return NextResponse.redirect(
+        new URL("/admin/auth/login", req.nextUrl.origin)
+      );
     }
   }
 }
