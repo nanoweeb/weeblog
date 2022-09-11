@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MdSpaceDashboard } from "react-icons/md";
+import { MdSpaceDashboard, MdAnalytics } from "react-icons/md";
 
 export default function AdminNav() {
   return (
@@ -7,10 +7,15 @@ export default function AdminNav() {
       <h1 className="text-xl font-semibold text-gray-200">
         <span>Weeblog </span>
       </h1>
-      <nav>
+      <nav className="text-gray-100 space-y-3 mt-20">
         <Link href="/admin/dashboard">
-          <a className="flex items-center">
+          <a className="flex items-center text-lg gap-5 py-2 px-2 rounded-md hover:bg-indigo-600 duration-200">
             <MdSpaceDashboard /> Dashboard
+          </a>
+        </Link>
+        <Link href="/admin/analytics">
+          <a className="flex items-center text-lg gap-5 py-2 px-2 rounded-md hover:bg-indigo-600 duration-200">
+            <MdAnalytics /> Analytics
           </a>
         </Link>
       </nav>
