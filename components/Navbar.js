@@ -28,8 +28,8 @@ export default function Navbar() {
             <Link href="/">
               <a className="py-1">Home</a>
             </Link>
-            <Link href="/admin/dashboard">
-              <a className="py-1">Dashboard</a>
+            <Link href="/admin">
+              <a className="py-1">Admin</a>
             </Link>
             <Link href="/about">
               <a className="py-1">About</a>

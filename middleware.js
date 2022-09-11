@@ -11,7 +11,7 @@ export async function middleware(req) {
     }
   }
 
-  if (req.nextUrl.pathname.startsWith("/admin/dashboard")) {
+  if (req.nextUrl.pathname === "/admin") {
     const token = await req.cookies.get("token");
 
     if (!token) {
