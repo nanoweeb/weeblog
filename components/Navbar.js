@@ -24,7 +24,7 @@ export default function Navbar() {
       {/* desktop navbar */}
       <div className="flex w-[1000px] justify-between md:justify-end md:gap-10 md:mx-auto">
         <nav className="hidden md:block">
-          <div className="w-full flex text-white gap-5 text-xl`">
+          <div className="w-full flex text-gray-100 gap-5 text-xl`">
             <Link href="/">
               <a className="py-1">Home</a>
             </Link>
