@@ -29,7 +29,7 @@ export default function Navbar() {
               <a className="py-1">Home</a>
             </Link>
             <Link href="/admin">
-              <a className="py-1">Admin</a>
+              <a className="py-1">Adminh</a>
             </Link>
             <Link href="/about">
               <a className="py-1">About</a>
