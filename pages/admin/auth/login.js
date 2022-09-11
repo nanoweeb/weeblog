@@ -79,7 +79,7 @@ export default function Login() {
               name="password"
               type="password"
               placeholder="password"
-              className="w-full p-2 rounded-md bg-slate-300 border-2 border-slate-500"
+              className="w-full p-2 rounded-md  bg-slate-300 border-2 border-slate-500"
               onChange={formHandler}
             />
             <p className="text-pink-500 ml-auto">Forget password ?</p>
