@@ -2,9 +2,9 @@ import AdminNav from "../../components/AdminNav";
 
 export default function admin() {
   return (
-    <div className="w-full flex h-screen bg-[#131d35] pt-6">
+    <div className="w-full h-full bg-[#131d35] pt-6">
       <AdminNav />
-      <div className="max-w-[1000px] px-5 mx-auto py-10">
+      <div className="max-w-[1000px] px-5 ml-auto py-10">
         <main>
           <div className="mb-10">
             <h1 className="bg-gradient-to-r bg-clip-text text-transparent text-3xl font-semibold from-[#24a4a7] to-indigo-600 ">
