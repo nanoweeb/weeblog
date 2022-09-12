@@ -1,6 +1,6 @@
 import AdminNav from "../../components/AdminNav";
 
-export default function admin() {
+export default function Home() {
   return (
     <div className="w-full h-full bg-[#131d35] pt-6">
       <AdminNav />
