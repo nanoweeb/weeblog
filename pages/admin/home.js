@@ -11,7 +11,7 @@ export default function Home() {
               Welcome to Admin page
             </h1>
             <p className="text-gray-200 text-lg">
-              Lets start your first blog easily 🔥
+              Lets start your first blog easily🔥
             </p>
           </div>
         </main>
