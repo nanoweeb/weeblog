@@ -5,9 +5,7 @@ export async function middleware(req) {
     const token = await req.cookies.get("token");
 
     if (token) {
-      return NextResponse.redirect(
-        new URL("/admin/dashboard", req.nextUrl.origin)
-      );
+      return NextResponse.redirect(new URL("/admin", req.nextUrl.origin));
     }
   }
 
