@@ -2,7 +2,7 @@ import AdminNav from "../../components/AdminNav";
 
 export default function Home() {
   return (
-    <div className="w-full h-full bg-[#131d35] pt-6">
+    <div className=" w-full h-full bg-[#131d35] pt-6">
       <AdminNav />
       <div className="max-w-[1000px] px-5 ml-auto py-10">
         <main>
