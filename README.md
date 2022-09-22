@@ -27,4 +27,4 @@ yarn
 ```bash
 yarn dev
 ```
-then open `http://localhost:3000` to see development started
+then open `http://localhost:3000` to see development started.
