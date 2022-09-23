@@ -2,7 +2,7 @@
 
 ## Features
 
-kickstart your Blog with Weeblog, Weeblog is a minimalist Blog starter
+kickstart your Blog with Weeblog, Weeblog is a minimalist Blog starter.
 
 - ⚛ React 18
 - 🍃 Tailwind CSS
